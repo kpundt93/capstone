@@ -8,3 +8,4 @@
 * 10:15 - watch 1 hour C#/React tutorial and build practice project with it (https://www.youtube.com/watch?v=ON-Z1iD6Y-c)
 * 11:45 - research Firebase/Firestore and React, review docs, go down the YouTube rabbit hole
 * 12:45 - scrap earlier C#/MySQL plan and revise capstone proposal to use Firebase/Firestore instead
+* 1:00 - watch React & Firebase tutorial (https://www.youtube.com/watch?v=jCY6DH8F4oc&t=109s)
