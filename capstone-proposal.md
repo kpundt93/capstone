@@ -22,6 +22,7 @@ As someone who likes to cook, I have recipes scattered in many different locatio
 - OAuth for user authentication
 - Users can upload photos to their recipes
 - Users can search by ingredient or category or both
+- Add ability to scale recipes
 - Host on Azure
 
 ### What additional tools, frameworks, libraries, APIs, or other resources will these additional features require?
