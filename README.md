@@ -9,3 +9,4 @@
 * 11:45 - research Firebase/Firestore and React, review docs, go down the YouTube rabbit hole
 * 12:45 - scrap earlier C#/MySQL plan and revise capstone proposal to use Firebase/Firestore instead
 * 1:00 - watch React & Firebase tutorial (https://www.youtube.com/watch?v=jCY6DH8F4oc&t=109s)
+* 2:30 - watch Firebase Auth tutorial playlist and code along with videos (https://www.youtube.com/playlist?list=PL4cUxeGkcC9jUPIes_B8vRjn1_GaplOPQ)
