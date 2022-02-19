@@ -11,4 +11,5 @@
 * 1:00 - watch React & Firebase tutorial (https://www.youtube.com/watch?v=jCY6DH8F4oc&t=109s)
 * 2:30 - watch Firebase Auth tutorial playlist and code along with videos (https://www.youtube.com/playlist?list=PL4cUxeGkcC9jUPIes_B8vRjn1_GaplOPQ)
 * 3:30 - stopped watching above playlist, it's a little outdated
-* 3:35 - start watching React Auth with Firebase video (https://www.youtube.com/watch?v=PKwu15ldZ7k);
+* 3:35 - start watching React Auth with Firebase video (https://www.youtube.com/watch?v=PKwu15ldZ7k)
+* 4:30 - start working through Firebase lessons on Learn How To Program
