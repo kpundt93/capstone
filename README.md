@@ -20,5 +20,7 @@
 * 8:15-8:30 - make a plan for today's work
 * 8:30-9:40 - re-read Epicodus materials on Redux, trying to determine the best way to manage state in my app
 * 9:40-11:00 - review materials on React Hooks, research using useState hook
-* 11:00 - decided to use combination of Redux and the useState hook, looking for code examples of implementing both
+* 11:00-11:20 - decided to use combination of Redux and the useState hook, looking for code examples of implementing both
+* 11:20-11:30 - break!
+* 11:30 - watch video on React Redux with hooks (https://www.youtube.com/watch?v=9jULHSe41ls)
 </details>
