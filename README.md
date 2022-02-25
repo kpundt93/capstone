@@ -18,4 +18,5 @@
 <details>
 <summary>Friday, 02/25/22</summary>
 * 8:15 - make a plan for today's work
+* 8:30 - re-read Epicodus materials on Redux, trying to determine the best way to manage state in my app
 </details>
