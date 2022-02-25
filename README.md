@@ -17,6 +17,7 @@
 
 <details>
 <summary>Friday, 02/25/22</summary>
-* 8:15 - make a plan for today's work
-* 8:30 - re-read Epicodus materials on Redux, trying to determine the best way to manage state in my app
+* 8:15-8:30 - make a plan for today's work
+* 8:30-9:40 - re-read Epicodus materials on Redux, trying to determine the best way to manage state in my app
+* 9:40 - review materials on React Hooks, research using useState hook
 </details>
