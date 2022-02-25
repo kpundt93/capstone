@@ -19,5 +19,6 @@
 <summary>Friday, 02/25/22</summary>
 * 8:15-8:30 - make a plan for today's work
 * 8:30-9:40 - re-read Epicodus materials on Redux, trying to determine the best way to manage state in my app
-* 9:40 - review materials on React Hooks, research using useState hook
+* 9:40-11:00 - review materials on React Hooks, research using useState hook
+* 11:00 - decided to use combination of Redux and the useState hook, looking for code examples of implementing both
 </details>
