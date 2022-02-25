@@ -24,4 +24,5 @@
 * 11:20-11:30 - break
 * 11:30-12:25 - watch video on React Redux with hooks (https://www.youtube.com/watch?v=9jULHSe41ls)
 * 12:30-1:30 - lunch break
+* 1:40 - create component diagram
 </details>
