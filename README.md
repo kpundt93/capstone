@@ -13,3 +13,9 @@
 * 3:30 - stopped watching above playlist, it's a little outdated
 * 3:35 - start watching React Auth with Firebase video (https://www.youtube.com/watch?v=PKwu15ldZ7k)
 * 4:30 - start working through Firebase lessons on Learn How To Program
+</details>
+
+<details>
+<summary>Friday, 02/25/22</summary>
+* 8:15 - make a plan for today's work
+</details>
