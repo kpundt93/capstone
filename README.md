@@ -20,6 +20,7 @@
 
 <details>
 <summary>Friday, 02/25/22</summary>
+
 * 8:15-8:30 - make a plan for today's work
 * 8:30-9:40 - re-read Epicodus materials on Redux, trying to determine the best way to manage state in my app
 * 9:40-11:00 - review materials on React Hooks, research using useState hook
@@ -27,5 +28,8 @@
 * 11:20-11:30 - break
 * 11:30-12:25 - watch video on React Redux with hooks (https://www.youtube.com/watch?v=9jULHSe41ls)
 * 12:30-1:30 - lunch break
-* 1:40 - 3:15 create component diagram (this took much longer than expected, I had to really think about how to divide up all of my app components)
+* 1:40-3:15 create component diagram (this took much longer than expected, I had to really think about how to divide up all of my app components)
+* 3:15-3:30 - break
+* 3:30 - research best practices for ingredient & measurement entry, start thinking about how my forms will look
+
 </details>
