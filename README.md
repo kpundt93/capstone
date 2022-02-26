@@ -16,6 +16,8 @@
 * 3:30 - stopped watching above playlist, it's a little outdated
 * 3:35 - start watching React Auth with Firebase video (https://www.youtube.com/watch?v=PKwu15ldZ7k)
 * 4:30 - start working through Firebase lessons on Learn How To Program
+
+* Total hours: 7.5
 </details>
 
 <details>
@@ -34,12 +36,20 @@
 * 4:00-5:00 - read React-Bootstrap documentation on forms, test out ideas on their in browser editor
 
 * Note to future Katie: solve the ingredient form issue by using React-Bootstrap elements (specifically an InputGroup with multiple FormControl elements and a DropdownButton) and an "Add" button for each ingredient entry.
+
+* Daily hours: 6.9
+* Total hours: 14.4
 </details>
 
 <details>
 <summary>Saturday, 02/26/22</summary>
 
 * 10:20-10:50 - dig into Firestore documentation to better understand collections and documents
-* 10:50 - watch videos linked in Firestore docs (https://www.youtube.com/watch?v=o7d5Zeic63s) and (https://www.youtube.com/watch?v=haMOUb3KVSo)
+* 10:50-11:25 - watch videos linked in Firestore docs (https://www.youtube.com/watch?v=o7d5Zeic63s) and (https://www.youtube.com/watch?v=haMOUb3KVSo)
+* 11:30 - create test Firestore db to mess with different database structures
+
+* Daily hours:
+* Total hours: 
+
 
 </details>
