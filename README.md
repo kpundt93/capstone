@@ -34,5 +34,11 @@
 * 4:00-5:00 - read React-Bootstrap documentation on forms, test out ideas on their in browser editor
 
 * Note to future Katie: solve the ingredient form issue by using React-Bootstrap elements (specifically an InputGroup with multiple FormControl elements and a DropdownButton) and an "Add" button for each ingredient entry.
+</details>
+
+<details>
+<summary>Saturday, 02/26/22</summary>
+
+* 10:20 - dig into Firestore documentation to better understand collections and documents
 
 </details>
