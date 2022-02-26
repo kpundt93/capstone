@@ -39,6 +39,7 @@
 <details>
 <summary>Saturday, 02/26/22</summary>
 
-* 10:20 - dig into Firestore documentation to better understand collections and documents
+* 10:20-10:50 - dig into Firestore documentation to better understand collections and documents
+* 10:50 - watch videos linked in Firestore docs (https://www.youtube.com/watch?v=o7d5Zeic63s) and (https://www.youtube.com/watch?v=haMOUb3KVSo)
 
 </details>
