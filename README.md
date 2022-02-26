@@ -46,10 +46,10 @@
 
 * 10:20-10:50 - dig into Firestore documentation to better understand collections and documents
 * 10:50-11:25 - watch videos linked in Firestore docs (https://www.youtube.com/watch?v=o7d5Zeic63s) and (https://www.youtube.com/watch?v=haMOUb3KVSo)
-* 11:30 - create test Firestore db to mess with different database structures
+* 11:30-12:30 - create test Firestore db to mess with different database structures (I think I'll use a map to store each ingredient, the quantity of that ingredient, and the measurement)
 
-* Daily hours:
-* Total hours: 
+* Daily hours: 2.1
+* Total hours: 16.5
 
 
 </details>
