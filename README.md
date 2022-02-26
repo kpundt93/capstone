@@ -30,6 +30,6 @@
 * 12:30-1:30 - lunch break
 * 1:40-3:15 create component diagram (this took much longer than expected, I had to really think about how to divide up all of my app components)
 * 3:15-3:30 - break
-* 3:30 - research best practices for ingredient & measurement entry, start thinking about how my forms will look
-
+* 3:30-4:00 - research best practices for ingredient & measurement entry, start thinking about how my forms will look
+* 4:00 - read React-Bootstrap documentation on forms, test out ideas on their in browser editor
 </details>
