@@ -11,7 +11,13 @@ const categories = [
   "Sweets",
   "Holiday",
   "Soups"
-]
+];
+
+const categoryOptions = categories.map((category) => {
+  return (
+    <option key={category} value={category}>{category}</option>
+  );
+});
 
 export default function ReusableForm(props) {
   return (
@@ -32,6 +38,7 @@ export default function ReusableForm(props) {
         <Form.Label className='form-label'>Category</Form.Label>
         <Form.Select>
           <option>Choose a category</option>
+          { categoryOptions }
         </Form.Select>
       </Form.Group>
       <Form.Group>
