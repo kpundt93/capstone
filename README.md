@@ -1,7 +1,7 @@
-## Component Diagram
+# Component Diagram
 ![Component Diagram](component-diagram.drawio.png)
 
-## Research & Planning Log
+# Research & Planning Log
 <details>
 <summary>Friday, 02/18/22</summary>
 
@@ -53,6 +53,8 @@
 
 </details>
 
+
+# Getting Started with Create React App
 <details>
 <summary>Getting Started with Create React App</summary>
 
