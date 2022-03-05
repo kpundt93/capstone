@@ -7,13 +7,16 @@ import SideBar from './SideBar'
 import CreateRecipe from './CreateRecipe'
 import Login from './Login'
 import Signup from './Signup'
+// styles
+import './App.css'
 
 function App() {
   return (
-    <React.Fragment>
-      <BrowserRouter>
+    <div className='app'>
+    <BrowserRouter>
+      <SideBar />
+      <div className='container'>
         <NavBar />
-        <SideBar />
         <Switch />
           <Route exact path='/'>
             <Home />
@@ -27,8 +30,9 @@ function App() {
           <Route path='/signup'>
             <Signup />
           </Route>
-      </BrowserRouter>
-    </React.Fragment>
+        </div>
+    </BrowserRouter>
+    </div>
   );
 }
 
