@@ -1,7 +1,39 @@
-# Component Diagram
+# My Recipes
+
+#### By: _**Katie Pundt**_
+
+#### _Brief description._
+
+## Technologies Used
+- HTML
+- CSS
+- JavaScript
+- React
+- React-Bootstrap
+- JSX
+- Firebase/Firestore
+- npm
+- git
+- GitHub
+
+## Description
+
+
+## Setup/Installation Requirements
+- Open the terminal on your desktop
+- Once in the terminal, use it to navigate to your desktop folder
+- Once inside your desktop folder, use the command `git clone https://github.com/kpundt93/capstone.git`
+- After cloning the project, navigate into it using the command `cd capstone/my-recipes`
+- Use the command `git remote` to confirm the creation of the new local repository
+- Install project dependencies by running the command `npm install`
+- If you receive errors in the terminal, try running `npm install` again, sometimes npm can be finicky
+- Then run the command `npm run start` to start the project server and view the application (use ctrl + c to exit the server in the terminal)
+- Open the project with the code editor of your choice
+
+## Component Diagram
 ![Component Diagram](component-diagram.drawio.png)
 
-# Research & Planning Log
+## Research & Planning Log
 <details>
 <summary>Friday, 02/18/22</summary>
 
@@ -54,7 +86,7 @@
 </details>
 
 
-# Getting Started with Create React App
+## Getting Started with Create React App
 <details>
 <summary>Getting Started with Create React App</summary>
 
