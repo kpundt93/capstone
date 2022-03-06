@@ -41,9 +41,6 @@ export default function ReusableForm(props) {
     );
   });
 
-  // return a new ingredient object
-  // ingredient object should have key value pairs for ingredient name, qty, and measurement
-
   const handleAdd = (e) => {
     e.preventDefault();
     const ing = newIngredient.trim();
@@ -54,6 +51,14 @@ export default function ReusableForm(props) {
     setNewIngredient('');
     ingredientInput.current.focus();
   }
+
+  // function should delete ingredient from current ingredients list
+  const handleClear = () => {
+    const ingredientsList = ingredients;
+    console.log(ingredientsList);
+    const newIngredientsList = [...ingredientsList];
+    console.log(newIngredientsList);
+    }
 
   return (
     <Form>
@@ -83,7 +88,7 @@ export default function ReusableForm(props) {
         <Col md='8'><FormControl placeholder='Ingredient' onChange={(e) => setNewIngredient(e.target.value)} value={newIngredient} ref={ingredientInput}/></Col>
         <Col md="1"><button className="btn" onClick={handleAdd}>Add</button></Col>
       </InputGroup>
-      <p>Current ingredients: {ingredients.map(i => <em id='ingredient' key={i}>{i} <img src={clear} id='remove' /></em>)}</p> 
+      <p>Current ingredients: {ingredients.map(i => <em id='ingredient' key={i}>{i} <img src={clear} id='remove' onClick={handleClear} /></em>)}</p> 
       <Form.Group>
         <Form.Label className='form-label'>Instructions</Form.Label>
         <Form.Control type='text' as='textarea' rows={3} onChange={(e) => setInstructions(e.target.value)} value={instructions} required />
