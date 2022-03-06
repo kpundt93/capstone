@@ -17,8 +17,6 @@ export default function ReusableForm(props) {
   const [instructions, setInstructions] = useState('');
   const [notes, setNotes] = useState('');
   const [newIngredient, setNewIngredient] = useState('');
-  const [newQty, setNewQty] = useState('');
-  const [newMeasurement, setNewMeasurement] = useState('');
   const [ingredients, setIngredients] = useState([]);
   const ingredientInput = useRef(null);
 
@@ -39,55 +37,17 @@ export default function ReusableForm(props) {
     );
   });
 
-  const measurements = [
-    "cup",
-    "tbsp",
-    "tsp",
-    "each",
-    "lb(s)",
-    "oz",
-    "pinch"
-  ];
-
-  const measurementOptions = measurements.map((newMeasurement) => {
-    return (
-      <option key={newMeasurement} value={newMeasurement}>{newMeasurement}</option>
-    );
-  });
-
-  // edit this function, instead of returning an array of ingredient objects I need to return an ingredient object
+  // return a new ingredient object
   // ingredient object should have key value pairs for ingredient name, qty, and measurement
-  // const handleAdd = (e) => {
-  //   e.preventDefault();
-  //   const ing = newIngredient.trim();
-
-  //   if (ing && !ingredients.includes(ing)) {
-  //     setIngredients(prevIngredients => [...prevIngredients, ing]);
-  //   }
-  //   setNewIngredient('');
-
-  //   ingredientInput.current.focus();
-  // }
 
   const handleAdd = (e) => {
     e.preventDefault();
     const ing = newIngredient.trim();
-    const ingQty = newQty.trim();
-    const ingMeasurement = newMeasurement.trim();
 
-    const ingObject = {
-      name: ing,
-      qty: ingQty,
-      measurement: ingMeasurement
-    }
-
-    if (ingObject && !ingredients.includes(ingObject)) {
-      setIngredients(prevIngredients => [...prevIngredients, ingObject]);
+    if (ing && !ingredients.includes(ing)) {
+      setIngredients(prevIngredients => [...prevIngredients, ing]);
     }
     setNewIngredient('');
-    setNewQty('');
-    setNewMeasurement('');
-
     ingredientInput.current.focus();
   }
 
@@ -116,22 +76,10 @@ export default function ReusableForm(props) {
       </Form.Group>
       <Form.Label>Ingredients</Form.Label>
       <InputGroup>
-        <Col md='6'><FormControl placeholder='Ingredient' onChange={(e) => setNewIngredient(e.target.value)} value={newIngredient} ref={ingredientInput}/></Col>
-        <Col md='2'><FormControl placeholder='Qty' onChange={(e) => setNewQty(e.target.value)} value={newQty} /></Col>
-        <Col md='3'>
-          <Form.Select onChange={(e) => setNewMeasurement(e.target.value)}>
-            <option>Measurement</option>
-            { measurementOptions }
-          </Form.Select>
-        </Col>
-        <Col md="1"><button className="btn" onClick={handleAdd}>+</button></Col>
+        <Col md='8'><FormControl placeholder='Ingredient' onChange={(e) => setNewIngredient(e.target.value)} value={newIngredient} ref={ingredientInput}/></Col>
+        <Col md="1"><button className="btn" onClick={handleAdd}>Add</button></Col>
       </InputGroup>
-      <p>
-        Current ingredients: {ingredients.forEach(function(ingredient) {
-        Object.values(ingredients);
-        console.log(ingredients);
-        })} 
-      </p> 
+      <p>Current ingredients: {ingredients.map(i => <em key={i}>{i}, </em>)}</p> 
       <Form.Group>
         <Form.Label className='form-label'>Instructions</Form.Label>
         <Form.Control type='text' as='textarea' rows={3} onChange={(e) => setInstructions(e.target.value)} value={instructions} required />
