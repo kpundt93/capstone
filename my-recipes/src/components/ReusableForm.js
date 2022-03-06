@@ -8,6 +8,10 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import InputGroup from 'react-bootstrap/InputGroup'
 import FormControl from 'react-bootstrap/FormControl'
+// styles
+import './ReusableForm.css'
+// images
+import clear from '../img/clear.svg'
 
 export default function ReusableForm(props) {
   const [title, setTitle] = useState('');
@@ -79,7 +83,7 @@ export default function ReusableForm(props) {
         <Col md='8'><FormControl placeholder='Ingredient' onChange={(e) => setNewIngredient(e.target.value)} value={newIngredient} ref={ingredientInput}/></Col>
         <Col md="1"><button className="btn" onClick={handleAdd}>Add</button></Col>
       </InputGroup>
-      <p>Current ingredients: {ingredients.map(i => <em key={i}>{i}, </em>)}</p> 
+      <p>Current ingredients: {ingredients.map(i => <em id='ingredient' key={i}>{i} <img src={clear} id='remove' /></em>)}</p> 
       <Form.Group>
         <Form.Label className='form-label'>Instructions</Form.Label>
         <Form.Control type='text' as='textarea' rows={3} onChange={(e) => setInstructions(e.target.value)} value={instructions} required />
