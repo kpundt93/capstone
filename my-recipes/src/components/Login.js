@@ -1,21 +1,20 @@
 import React from 'react'
 import { useState } from 'react'
+import { useLogin } from '../hooks/useLogin'
 // react-bootstrap
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
-// styles
-import './Auth.css'
+
 
 export default function Login() {
-  const [user, setUser] = useState({
-    email: "",
-    password: ""
-  });
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const { login, error, isPending } = useLogin();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(user);
-  }
+    login(email, password);
+  };
 
   return (
     <React.Fragment>
@@ -23,16 +22,18 @@ export default function Login() {
       <Form onSubmit={handleSubmit}>
         <Form.Group>
           <Form.Label className='form-label'>Email</Form.Label>
-          <Form.Control type='email' onChange={e => setUser({...user, email: e.target.value})} required />
+          <Form.Control type='email' onChange={(e)=> setEmail(e.target.value)} value={email} required />
         </Form.Group>
 
         <Form.Group>
           <Form.Label className='form-label'>Password</Form.Label>
-          <Form.Control type='password' onChange={e => setUser({...user, password: e.target.value})} required />
+          <Form.Control type='password' onChange={(e) => setPassword(e.target.value)} value={password} required />
         </Form.Group>
 
-        <Button className="btn btn-primary" type="submit">Submit</Button>
+        {!isPending && <Button className="btn btn-primary" type="submit">Submit</Button>}
+        {isPending && <Button className="btn btn-primary" type="submit" disabled>Loading...</Button>}
+        {error && <p>{error}</p>}
     </Form>
   </React.Fragment>
-  )
-}
+  );
+};
