@@ -10,7 +10,6 @@ import Col from 'react-bootstrap/Col'
 import './ReusableForm.css'
 
 export default function ReusableForm(props) {
-  const [recipes, setRecipes] = useState([])
   const [form, setForm] = useState({
     title: "",
     cookTime: "",
@@ -19,7 +18,7 @@ export default function ReusableForm(props) {
     ingredients: [],
     instructions: "",
     notes: ""
-  })
+  });
 
   const categories = [
     "Breakfast",
@@ -46,7 +45,7 @@ export default function ReusableForm(props) {
       ...form,
       ingredients: ingredientsClone
     });
-  }
+  };
 
   const handleIngredientCount = (e) => {
     e.preventDefault();
@@ -54,7 +53,7 @@ export default function ReusableForm(props) {
       ...form,
       ingredients: [...form.ingredients, ""]
     });
-  }
+  };
 
   const handleRemoveIngredient = (e, i) => {
     e.preventDefault();
@@ -67,12 +66,12 @@ export default function ReusableForm(props) {
       ...form,
       ingredients: ingredientsClone
     });
-  }
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(form);
-  }
+  };
 
   return (
     <Form onSubmit={handleSubmit}>
@@ -121,7 +120,11 @@ export default function ReusableForm(props) {
         <Form.Label className='form-label'>Notes</Form.Label>
         <Form.Control type='text' as='textarea' rows={2} onChange={(e) => setForm({...form, notes: e.target.value})} required />
       </Form.Group>
-      <Button className="btn btn-primary" type="submit">Submit</Button>
+      <Button className="btn btn-primary" type="submit">{props.buttonText}</Button>
   </Form>
-  )
+  );
+}
+
+ReusableForm.propTypes = {
+  buttonText: PropTypes.string
 }

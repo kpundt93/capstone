@@ -1,7 +1,12 @@
 import React from 'react'
+// components
+import ReusableForm from './ReusableForm'
 
-export default function EditRecipe() {
+export default function CreateRecipe(props) {
   return (
-    <div>EditRecipe</div>
+    <div className='create'>
+      <h2>Add a New Recipe</h2>
+      <ReusableForm buttonText='Update Recipe' />
+    </div>
   )
 }
