@@ -6,23 +6,20 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-import InputGroup from 'react-bootstrap/InputGroup'
-import FormControl from 'react-bootstrap/FormControl'
 // styles
 import './ReusableForm.css'
-// images
-import clear from '../img/clear.svg'
 
 export default function ReusableForm(props) {
-  const [title, setTitle] = useState('');
-  const [cookTime, setCookTime] = useState('');
-  const [servings, setServings] = useState('');
-  const [category, setCategory] = useState('');
-  const [instructions, setInstructions] = useState('');
-  const [notes, setNotes] = useState('');
-  const [newIngredient, setNewIngredient] = useState('');
-  const [ingredients, setIngredients] = useState([]);
-  const ingredientInput = useRef(null);
+  const [recipes, setRecipes] = useState([])
+  const [form, setForm] = useState({
+    title: "",
+    cookTime: "",
+    servings: 0,
+    category: "",
+    ingredients: [],
+    instructions: "",
+    notes: ""
+  })
 
   const categories = [
     "Breakfast",
@@ -41,62 +38,90 @@ export default function ReusableForm(props) {
     );
   });
 
-  const handleAdd = (e) => {
+  const handleIngredient = (e, i) => {
     e.preventDefault();
-    const ing = newIngredient.trim();
-
-    if (ing && !ingredients.includes(ing)) {
-      setIngredients(prevIngredients => [...prevIngredients, ing]);
-    }
-    setNewIngredient('');
-    ingredientInput.current.focus();
+    const ingredientsClone = [...form.ingredients];
+    ingredientsClone[i] = e.target.value;
+    setForm({
+      ...form,
+      ingredients: ingredientsClone
+    });
   }
 
-  // function should delete ingredient from current ingredients list
-  const handleClear = () => {
-    const ingredientsList = ingredients;
-    console.log(ingredientsList);
-    const newIngredientsList = [...ingredientsList];
-    console.log(newIngredientsList);
-    }
+  const handleIngredientCount = (e) => {
+    e.preventDefault();
+    setForm({
+      ...form,
+      ingredients: [...form.ingredients, ""]
+    });
+  }
+
+  const handleRemoveIngredient = (e, i) => {
+    e.preventDefault();
+    const ingredientsClone = [...form.ingredients];
+    console.log(ingredientsClone);
+    const newIngredientsClone = ingredientsClone.splice(-1);
+    console.log(newIngredientsClone);
+    console.log(ingredientsClone);
+    setForm({
+      ...form,
+      ingredients: ingredientsClone
+    });
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(form);
+  }
 
   return (
-    <Form>
+    <Form onSubmit={handleSubmit}>
       <Form.Group>
         <Form.Label className='form-label'>Title</Form.Label>
-        <Form.Control type='text' onChange={(e) => setTitle(e.target.value)} value={title} required />
+        <Form.Control type='text' onChange={e => setForm({...form, title: e.target.value})} required />
       </Form.Group>
+
       <Row>
         <Col>
           <Form.Label className='form-label'>Cook Time</Form.Label>
-          <Form.Control type='text' onChange={(e) => setCookTime(e.target.value)} value={cookTime} required />
+          <Form.Control type='text' onChange={(e) => setForm({...form, cookTime: e.target.value})} required />
         </Col>
+
         <Col>
           <Form.Label className='form-label'>Servings</Form.Label>
-          <Form.Control type='number' step='1' min='1' onChange={(e) => setServings(e.target.value)} value={servings} required />
+          <Form.Control type='number' step='1' min='1' onChange={(e) => setForm({...form, servings: e.target.value})} required />
         </Col>
       </Row>
+
       <Form.Group>
         <Form.Label className='form-label'>Category</Form.Label>
-        <Form.Select onChange={(e) => setCategory(e.target.value)} value={category}>
+        <Form.Select onChange={(e) => setForm({...form, category: e.target.value})}>
           <option>Choose a category</option>
           { categoryOptions }
         </Form.Select>
       </Form.Group>
-      <Form.Label>Ingredients</Form.Label>
-      <InputGroup>
-        <Col md='8'><FormControl placeholder='Ingredient' onChange={(e) => setNewIngredient(e.target.value)} value={newIngredient} ref={ingredientInput}/></Col>
-        <Col md="1"><button className="btn" onClick={handleAdd}>Add</button></Col>
-      </InputGroup>
-      <p>Current ingredients: {ingredients.map(i => <em id='ingredient' key={i}>{i} <img src={clear} id='remove' onClick={handleClear} /></em>)}</p> 
+
+      <Form.Group>
+        <Form.Label>Ingredients</Form.Label>
+        { 
+          form.ingredients.map((ingredient, i) => (
+          <Form.Control type="text" key={i} value={ingredient} onChange={(e) => handleIngredient(e, i)} />
+          ))
+        }
+        <button className='btn btn-secondary' onClick={handleIngredientCount}>Add ingredient</button>
+        <button className='btn btn-danger' onClick={handleRemoveIngredient}>Remove ingredient</button>
+      </Form.Group>
+
       <Form.Group>
         <Form.Label className='form-label'>Instructions</Form.Label>
-        <Form.Control type='text' as='textarea' rows={3} onChange={(e) => setInstructions(e.target.value)} value={instructions} required />
+        <Form.Control type='text' as='textarea' rows={3} onChange={(e) => setForm({...form, instructions: e.target.value})} required />
       </Form.Group>
+
       <Form.Group>
         <Form.Label className='form-label'>Notes</Form.Label>
-        <Form.Control type='text' as='textarea' rows={2} onChange={(e) => setNotes(e.target.value)} value={notes} />
+        <Form.Control type='text' as='textarea' rows={2} onChange={(e) => setForm({...form, notes: e.target.value})} required />
       </Form.Group>
+      <Button className="btn btn-primary" type="submit">Submit</Button>
   </Form>
   )
 }
