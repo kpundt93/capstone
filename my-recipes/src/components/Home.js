@@ -12,13 +12,14 @@ export default function Home() {
     ['uid', '==', user.uid],
     ['createdAt', 'desc']
     );
+  const recipes = documents;
 
   return (
     <React.Fragment>
       <h2>Home</h2>
       <div>
         {error && <p>{error}</p>}
-        {documents && <RecipeList recipes={documents} />}
+        {recipes && <RecipeList recipes={recipes} />}
       </div>
     </React.Fragment>
   )
