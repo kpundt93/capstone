@@ -7,7 +7,10 @@ import RecipeList from './RecipeList'
 export default function Home() {
   // need to do something with the uid when rendering recipe cards to only show recipes belong to the currently logged in.
   const { user } = useAuthContext();
-  const {documents, error } = useCollection('recipes');
+  const { documents, error } = useCollection(
+    'recipes', 
+    ['uid', '==', user.uid]
+    );
 
   return (
     <React.Fragment>
