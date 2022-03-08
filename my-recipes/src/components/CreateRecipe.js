@@ -19,7 +19,7 @@ export default function CreateRecipe({ uid }) {
     ingredients: [],
     instructions: "",
     notes: "",
-    user: user.uid
+    uid: ""
   });
 
   const categories = [
@@ -123,7 +123,7 @@ export default function CreateRecipe({ uid }) {
         <Form.Label className='form-label'>Notes</Form.Label>
         <Form.Control type='text' as='textarea' rows={2} onChange={(e) => setForm({...form, notes: e.target.value})} />
       </Form.Group>
-      <Button className="btn btn-primary" type="submit">Create Recipe</Button>
+      <Button className="btn btn-primary" type="submit" onClick={(e) => setForm({...form, uid: user.uid})}>Create Recipe</Button>
   </Form>
   );
 }
