@@ -2,6 +2,7 @@ import React from 'react'
 import { useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { projectFirestore } from '../firebase-config'
+import { Link } from 'react-router-dom'
 
 export default function Recipe() {
   const { id } = useParams();
@@ -9,6 +10,7 @@ export default function Recipe() {
   const [recipe, setRecipe] = useState(null);
   const [isPending, setIsPending] = useState(false);
   const [error, setError] = useState(false);
+  const [docToEdit, setDocToEdit] = useState("");
 
   useEffect(() => {
     setIsPending(true);
@@ -17,6 +19,7 @@ export default function Recipe() {
       if (doc.exists) {
         setIsPending(false);
         setRecipe(doc.data());
+        setDocToEdit(doc.id);
       } else {
         setIsPending(false);
         setError('Could not find that recipe.');
@@ -37,17 +40,17 @@ export default function Recipe() {
           <p>Cook Time: {recipe.cookTime}</p>
           <p>Servings: {recipe.servings}</p>
           <p>Category: {recipe.category}</p>
-          <p>Ingredients:
+          <p>Ingredients:</p>
             <ul>
             {recipe.ingredients.map(ing => <li key={ing}>{ing}</li>)}
             </ul>
+          <p>Instructions: <br />
+            {recipe.instructions}
           </p>
-          <p>Instructions:
-            <p>{recipe.instructions}</p>
+          <p>Notes: <br />
+            {recipe.notes}
           </p>
-          <p>Notes:
-            <p>{recipe.notes}</p>
-          </p>
+          <Link to={`/edit/${docToEdit}`}>Edit</Link>
         </>
       )}
     </div>
