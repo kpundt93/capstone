@@ -9,6 +9,7 @@ import CreateRecipe from './CreateRecipe'
 import Login from './Login'
 import Signup from './Signup'
 import RecipeDetails from './RecipeDetails'
+import EditRecipe from './EditRecipe'
 // styles
 import './App.css'
 
@@ -34,6 +35,10 @@ function App() {
               <Route path='/recipes/:id'>
                 {!user && <Redirect to='/login' />}  
                 {user && <RecipeDetails />}
+              </Route>
+              <Route path='/edit/:id'>
+                {!user && <Redirect to='/login' />}  
+                {user && <EditRecipe />}
               </Route>
               <Route path='/login'>
                 {user && <Redirect to='/' />}
