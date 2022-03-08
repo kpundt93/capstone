@@ -8,6 +8,7 @@ import SideBar from './SideBar'
 import CreateRecipe from './CreateRecipe'
 import Login from './Login'
 import Signup from './Signup'
+import RecipeDetails from './RecipeDetails'
 // styles
 import './App.css'
 
@@ -26,9 +27,13 @@ function App() {
                 {user && <Home />}
                 {!user && <Redirect to='/login' />}
               </Route>
-              <Route path="/create">
+              <Route path='/create'>
                 {user && <CreateRecipe />}
                 {!user && <Redirect to='/login' />}
+              </Route>
+              <Route path='/recipes/:id'>
+                {!user && <Redirect to='/login' />}  
+                {user && <RecipeDetails />}
               </Route>
               <Route path='/login'>
                 {user && <Redirect to='/' />}
