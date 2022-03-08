@@ -1,6 +1,7 @@
 import React from 'react'
 import { useReducer, useEffect, useState } from 'react'
 import { projectFirestore } from '../firebase-config'
+import { useHistory } from 'react-router-dom'
 
 let initialState = {
   document: null,
@@ -25,6 +26,7 @@ const firestoreReducer = (state, action) => {
 export const useFirestore = (collection) => {
   const [response, dispatch] = useReducer(firestoreReducer, initialState);
   const [isCancelled, setIsCancelled] = useState(false);
+  const history = useHistory();
 
   // collection ref
   const ref = projectFirestore.collection(collection);
@@ -43,6 +45,7 @@ export const useFirestore = (collection) => {
     try {
       const addedDocument = await ref.add(doc);
       dispatchIfNotCancelled({ type: 'ADDED_DOCUMENT', payload: addedDocument });
+      history.push('/');
     }
     catch (err) {
       dispatchIfNotCancelled({ type: 'ERROR', payload: err.message });

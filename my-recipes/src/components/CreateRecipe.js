@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useFirestore } from '../hooks/useFirestore'
 import { useAuthContext } from '../hooks/useAuthContext'
 // react-bootstrap
@@ -80,7 +80,7 @@ export default function CreateRecipe({ uid }) {
     <Form onSubmit={handleSubmit}>
       <Form.Group>
         <Form.Label className='form-label'>Title</Form.Label>
-        <Form.Control type='text' onChange={e => setForm({...form, title: e.target.value})} required />
+        <Form.Control type='text' onChange={e => setForm({...form, title: e.target.value})} value={setForm.title} required />
       </Form.Group>
 
       <Row>
@@ -121,7 +121,7 @@ export default function CreateRecipe({ uid }) {
 
       <Form.Group>
         <Form.Label className='form-label'>Notes</Form.Label>
-        <Form.Control type='text' as='textarea' rows={2} onChange={(e) => setForm({...form, notes: e.target.value})} required />
+        <Form.Control type='text' as='textarea' rows={2} onChange={(e) => setForm({...form, notes: e.target.value})} />
       </Form.Group>
       <Button className="btn btn-primary" type="submit">Create Recipe</Button>
   </Form>
