@@ -19,7 +19,7 @@ export default function Home() {
       <h2>Home</h2>
       <div>
         {error && <p>{error}</p>}
-        {recipes && <RecipeList recipes={recipes} />}
+        {documents && <RecipeList recipes={documents} />}
       </div>
     </React.Fragment>
   )
