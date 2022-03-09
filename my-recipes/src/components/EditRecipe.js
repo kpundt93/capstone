@@ -25,18 +25,6 @@ export default function EditRecipe() {
   const [newInstructions, setNewInstructions] = useState("");
   const [newNotes, setNewNotes] = useState("");
 
-  // const [form, setForm] = useState({
-  //   title: "",
-  //   cookTime: "",
-  //   servings: 0,
-  //   category: "",
-  //   ingredients: [],
-  //   instructions: "",
-  //   notes: "",
-  //   uid: "",
-  //   createdAt: ""
-  // });
-
   useEffect(() => {
     setIsPending(true);
 
@@ -81,13 +69,13 @@ export default function EditRecipe() {
   //   });
   // };
 
-  // const handleIngredientCount = (e) => {
-  //   e.preventDefault();
-  //   setForm({
-  //     ...form,
-  //     ingredients: [...form.ingredients, ""]
-  //   });
-  // };
+  const handleIngredientCount = (e) => {
+    e.preventDefault();
+    setNewIngredients({
+      ...newIngredients,
+      ingredients: [...newIngredients, ""]
+    });
+  };
 
   // const handleRemoveIngredient = (e, i) => {
   //   e.preventDefault();
@@ -110,7 +98,7 @@ export default function EditRecipe() {
       cookTime: newCookTime === "" ? recipe.cookTime : newCookTime,
       servings: newServings === 0 ? recipe.servings : newServings,
       category: newCategory === "" || newCategory === "Choose a category" ? recipe.category : newCategory,
-      // ingredients: e.target.ingredients.value,
+      ingredients: newIngredients === "" ? recipe.ingredients : newIngredients,
       instructions: newInstructions === "" ? recipe.instructions : newInstructions,
       notes: newNotes === "" ? recipe.notes : newNotes
     };
@@ -150,16 +138,16 @@ export default function EditRecipe() {
               </Form.Select>
             </Form.Group>
 
-            {/* <Form.Group>
+            <Form.Group>
               <Form.Label>Ingredients</Form.Label>
               { 
-                form.ingredients.map((ingredient, i) => (
-                <Form.Control type="text" key={i} value={ingredient} onChange={(e) => handleIngredient(e, i)} />
+                recipe.ingredients.map((ingredient, i) => (
+                <Form.Control type="text" key={i} value={ingredient} onChange={(e) => setNewIngredients(e, i)} contentEditable />
                 ))
               }
               <button className='btn btn-secondary' onClick={handleIngredientCount}>Add ingredient</button>
-              <button className='btn btn-danger' onClick={handleRemoveIngredient}>Remove ingredient</button>
-            </Form.Group> */}
+              {/* <button className='btn btn-danger' onClick={handleRemoveIngredient}>Remove ingredient</button> */}
+            </Form.Group>
 
             <Form.Group>
               <Form.Label className='form-label'>Instructions</Form.Label>
