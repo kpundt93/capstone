@@ -43,15 +43,15 @@ export const useFirestore = (collection) => {
   };
 
   // search
-  const search = async (term) => {
+  const search = (term) => {
     dispatch({ type: 'IS_PENDING' });
 
     try {
-      const searchResults = await ref.where("ingredients", "array-contains-any", term);
+      const searchResults = ref.where("ingredients", "array-contains-any", term);
       dispatchIfNotCancelled({ type: 'FOUND_DOCUMENTS', payload: searchResults });
     }
     catch (err) {
-      dispatchIfNotCancelled({ type: 'ERROR', payload: error.message });
+      dispatchIfNotCancelled({ type: 'ERROR', payload: err.message });
     }
   }
 
@@ -95,5 +95,5 @@ export const useFirestore = (collection) => {
     }
   }, []);
 
-  return { addDocument, editDocument, deleteDocument, response };
+  return { addDocument, editDocument, deleteDocument, search, response };
 }

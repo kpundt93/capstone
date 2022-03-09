@@ -12,7 +12,6 @@ export default function Home() {
     ['uid', '==', user.uid],
     ['createdAt', 'desc']
     );
-  const recipes = documents;
 
   return (
     <React.Fragment>
