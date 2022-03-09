@@ -4,6 +4,7 @@ import { useCollection } from '../hooks/useCollection'
 // components
 import RecipeList from './RecipeList'
 import FilterCategory from './FilterCategory'
+import SearchBar from './SearchBar'
 
 export default function Home() {
   const { documents, error } = useCollection('recipes');
@@ -25,7 +26,6 @@ export default function Home() {
       case 'Sweets':
       case 'Holiday':
       case 'Soups':
-        console.log(document.category, currentFilter);
         return document.category === currentFilter;
       default:
         return true;
@@ -40,6 +40,7 @@ export default function Home() {
         {documents && (
           <FilterCategory currentFilter={currentFilter} changeFilter={changeFilter} />
         )}
+        {documents && <SearchBar />}
         {documents && <RecipeList recipes={recipes} />}
       </div>
     </React.Fragment>
