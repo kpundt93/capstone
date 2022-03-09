@@ -19,7 +19,11 @@ export default function EditRecipe() {
   const [error, setError] = useState(false);
   const [newTitle, setNewTitle] = useState("");
   const [newCookTime, setNewCookTime] = useState("");
-
+  const [newServings, setNewServings] = useState(0);
+  const [newCategory, setNewCategory] = useState("");
+  const [newIngredients, setNewIngredients] = useState([]);
+  const [newInstructions, setNewInstructions] = useState("");
+  const [newNotes, setNewNotes] = useState("");
 
   // const [form, setForm] = useState({
   //   title: "",
@@ -50,22 +54,22 @@ export default function EditRecipe() {
 
   }, [id]);
 
-  // const categories = [
-  //   "Breakfast",
-  //   "Lunch",
-  //   "Dinner",
-  //   "Snacks",
-  //   "Appetizers",
-  //   "Sweets",
-  //   "Holiday",
-  //   "Soups"
-  // ];
+  const categories = [
+    "Breakfast",
+    "Lunch",
+    "Dinner",
+    "Snacks",
+    "Appetizers",
+    "Sweets",
+    "Holiday",
+    "Soups"
+  ];
   
-  // const categoryOptions = categories.map((category) => {
-  //   return (
-  //     <option key={category} value={category}>{category}</option>
-  //   );
-  // });
+  const categoryOptions = categories.map((category) => {
+    return (
+      <option key={category} value={category}>{category}</option>
+    );
+  });
 
   // const handleIngredient = (e, i) => {
   //   e.preventDefault();
@@ -103,12 +107,12 @@ export default function EditRecipe() {
 
     const fieldsToUpdate = {
       title: newTitle === "" ? recipe.title : newTitle,
-      cookTime: newCookTime === "" ? recipe.cookTime : newCookTime
-      // servings: e.target.servings.value,
-      // category: e.target.category.value,
+      cookTime: newCookTime === "" ? recipe.cookTime : newCookTime,
+      servings: newServings === 0 ? recipe.servings : newServings,
+      category: newCategory === "" || newCategory === "Choose a category" ? recipe.category : newCategory,
       // ingredients: e.target.ingredients.value,
-      // instructions: e.target.instructions.value,
-      // notes: e.target.notes.value
+      instructions: newInstructions === "" ? recipe.instructions : newInstructions,
+      notes: newNotes === "" ? recipe.notes : newNotes
     };
     console.log(recipe);
     await editDocument(id, fieldsToUpdate);
@@ -123,28 +127,28 @@ export default function EditRecipe() {
           <Form onSubmit={handleEdit}>
             <Form.Group>
               <Form.Label className='form-label'>Title</Form.Label>
-              <Form.Control type='text' onChange={(e) => setNewTitle(e.target.value)} defaultValue={recipe.title} contentEditable />
+              <Form.Control type='text' onChange={(e) => setNewTitle(e.target.value)} defaultValue={recipe.title} />
             </Form.Group>
 
             <Row>
               <Col>
                 <Form.Label className='form-label'>Cook Time</Form.Label>
-                <Form.Control type='text' onChange={(e) => setNewCookTime(e.target.value)} defaultValue={recipe.cookTime} contentEditable />
+                <Form.Control type='text' onChange={(e) => setNewCookTime(e.target.value)} defaultValue={recipe.cookTime} />
               </Col>
 
-              {/* <Col>
+              <Col>
                 <Form.Label className='form-label'>Servings</Form.Label>
-                <Form.Control type='number' step='1' min='1' onChange={(e) => setForm({...form, servings: e.target.value})} required />
-              </Col> */}
+                <Form.Control type='number' step='1' min='1' onChange={(e) => setNewServings(e.target.value)} defaultValue={recipe.servings} />
+              </Col>
             </Row>
 
-            {/* <Form.Group>
+            <Form.Group>
               <Form.Label className='form-label'>Category</Form.Label>
-              <Form.Select onChange={(e) => setForm({...form, category: e.target.value})}>
+              <Form.Select onChange={(e) => setNewCategory(e.target.value)} defaultValue={recipe.category}>
                 <option>Choose a category</option>
                 { categoryOptions }
               </Form.Select>
-            </Form.Group> */}
+            </Form.Group>
 
             {/* <Form.Group>
               <Form.Label>Ingredients</Form.Label>
@@ -157,16 +161,15 @@ export default function EditRecipe() {
               <button className='btn btn-danger' onClick={handleRemoveIngredient}>Remove ingredient</button>
             </Form.Group> */}
 
-            {/* <Form.Group>
+            <Form.Group>
               <Form.Label className='form-label'>Instructions</Form.Label>
-              <Form.Control type='text' as='textarea' rows={3} onChange={(e) => setForm({...form, instructions: e.target.value})} required />
-            </Form.Group> */}
-
-            {/* <Form.Group>
-              <Form.Label className='form-label'>Notes</Form.Label>
-              <Form.Control type='text' as='textarea' rows={2} onChange={(e) => setForm({...form, notes: e.target.value})} />
+              <Form.Control type='text' as='textarea' rows={3} onChange={(e) => setNewInstructions(e.target.value)} defaultValue={recipe.instructions} required />
             </Form.Group>
-            <Button className="btn btn-primary" type="submit" onClick={(e) => setForm({...form, uid: user.uid, createdAt: timestamp.fromDate(new Date())})}>Create Recipe</Button> */}
+
+            <Form.Group>
+              <Form.Label className='form-label'>Notes</Form.Label>
+              <Form.Control type='text' as='textarea' rows={2} onChange={(e) => setNewNotes(e.target.value)} defaultValue={recipe.notes} />
+            </Form.Group>
             <Button className="btn btn-primary" type="submit">Update</Button>
         </Form>
       </>
