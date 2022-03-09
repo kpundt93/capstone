@@ -3,6 +3,7 @@ import React from 'react'
 import Button from 'react-bootstrap/Button'
 
 const filters = [
+  "All",
   "Breakfast",
   "Lunch",
   "Dinner",
@@ -22,8 +23,9 @@ export default function FilterCategory({ currentFilter, changeFilter }) {
   return (
     <div className="recipe-filter">
       <nav>
+        <p>Filter by:</p>
         {filters.map((filter) => (
-          <Button key={filter} className={currentFilter === filter ? 'active' : ''} onClick={(e) => handleClick(filter)}>{filter}</Button>
+          <Button key={filter} className={currentFilter === filter ? 'active' : ''} onClick={() => handleClick(filter)}>{filter}</Button>
         ))}
       </nav>
     </div>
