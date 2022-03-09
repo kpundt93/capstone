@@ -2,7 +2,6 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 export default function RecipeList({ recipes }) {
-  console.log(recipes);
   return (
     <div className='recipe-list'>
       {recipes.length === 0 && <p>You haven't added any recipes yet!</p>}
