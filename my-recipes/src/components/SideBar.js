@@ -1,35 +1,38 @@
 import React from 'react'
-import { useState } from 'react'
-import { useCollection } from '../hooks/useCollection'
+import { NavLink } from 'react-router-dom'
 import { useAuthContext } from '../hooks/useAuthContext'
-// components
-import SearchBar from './SearchBar'
-import FilterCategory from './FilterCategory'
 // styles
 import './SideBar.css'
+// images
+import HomeIcon from '../img/home-icon.svg'
+import AddIcon from '../img/add-icon.svg'
+import Logo from '../img/recipe-book-icon.svg'
 
 export default function SideBar() {
-  const [currentFilter, setCurrentFilter] = useState('all');
   const { user } = useAuthContext();
-  const { documents, error } = useCollection(
-    'recipes', 
-    ['uid', '==', user.uid],
-    ['createdAt', 'desc']
-    );
-
-  const changeFilter = (newFilter) => {
-    setCurrentFilter(newFilter);
-    console.log(newFilter);
-  }
 
   return (
     <div className='sidebar'>
-      <div className='sidebar-content'>
-        <p>Side bar content goes here</p>
-        <SearchBar />
-        {documents && (
-          <FilterCategory currentFilter={currentFilter} changeFilter={changeFilter} />
-        )}
+      <div className="sidebar-content">
+        <div className="logo">
+          <img src={Logo} alt='recipe book logo' />
+        </div>
+        <nav className="links">
+          <ul>
+            <li>
+              <NavLink exact to='/'>
+                <img src={HomeIcon} alt='home icon' />
+                <span>Home</span>
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to='/create'>
+                <img src={AddIcon} alt='add recipe icon' />
+                <span>New Recipe</span>
+              </NavLink>
+            </li>
+          </ul>
+        </nav>
       </div>
     </div>
   )
