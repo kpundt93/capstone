@@ -17,7 +17,6 @@ export default function FilterCategory({ currentFilter, changeFilter }) {
 
   const handleClick = (newFilter) => {
     changeFilter(newFilter);
-    console.log(newFilter);
   }
 
   return (

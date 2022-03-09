@@ -19,24 +19,8 @@ export default function SideBar() {
 
   const changeFilter = (newFilter) => {
     setCurrentFilter(newFilter);
+    console.log(newFilter);
   }
-
-  const recipes = documents ? documents.filter((document) => {
-    switch(currentFilter) {
-      case 'breakfast':
-      case 'lunch':
-      case 'dinner':
-      case 'snacks':
-      case 'appetizers':
-      case 'sweets':
-      case 'holiday':
-      case 'soups':
-        console.log(document.category, currentFilter);
-        return document.category === currentFilter;
-      default:
-        return true;
-    }
-  }) : null;
 
   return (
     <div className='sidebar'>

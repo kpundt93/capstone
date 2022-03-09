@@ -2,7 +2,7 @@ import React from 'react'
 import { useEffect, useState, useRef } from 'react'
 import { projectFirestore } from '../firebase-config'
 
-export const useCollection = (collection, _query, _orderBy) => {
+export const useCollection = (collection, _query, _orderBy, _filter) => {
   const [documents, setDocuments] = useState(null)
   const [error, setError] = useState(null)
 
@@ -10,15 +10,20 @@ export const useCollection = (collection, _query, _orderBy) => {
   // _query is an array and is "different" on every function call
   const query = useRef(_query).current
   const orderBy = useRef(_orderBy).current
+  const currentFilter = useRef(_filter).current
 
   useEffect(() => {
-    let ref = projectFirestore.collection(collection)
+    let ref = projectFirestore.collection(collection);
 
     if (query) {
       ref = ref.where(...query)
     }
     if (orderBy) {
       ref = ref.orderBy(...orderBy)
+    }
+
+    if (currentFilter) {
+      ref = ref.where(...currentFilter);
     }
 
     const unsubscribe = ref.onSnapshot(snapshot => {
@@ -38,7 +43,7 @@ export const useCollection = (collection, _query, _orderBy) => {
     // unsubscribe on unmount
     return () => unsubscribe()
 
-  }, [collection, query, orderBy])
+  }, [collection, query, orderBy, currentFilter])
 
   return { documents, error }
 }
