@@ -16,6 +16,8 @@ const firestoreReducer = (state, action) => {
       return { ...state, isPending: true, document: null, success: false, error: null }
     case 'ADDED_DOCUMENT':
       return { ...state, isPending: false, document: action.payload, success: true, error: null }
+    case 'EDITED_DOCUMENT':
+      return { ...state, isPending: false, document: action.payload, success: true, error: null }
     case 'ERROR':
       return { ...state, isPending: false, document: null, success: false, error: action.payload }
     default:
@@ -53,8 +55,17 @@ export const useFirestore = (collection) => {
   };
 
   // edit a document in the firestore
-  const editDocument = async (id) => {
+  const editDocument = async (id, updates) => {
+    dispatch({ type: 'IS_PENDING' });
 
+    try {
+      const editedDocument = await ref.doc(id).update(updates)
+      dispatchIfNotCancelled({ type: 'EDITED_DOCUMENT', payload: editedDocument });
+      return editedDocument;
+    }
+    catch (err) {
+      dispatchIfNotCancelled({ type: 'ERROR', payload: err.message });
+    }
   };
 
   // delete a document from the firestore
