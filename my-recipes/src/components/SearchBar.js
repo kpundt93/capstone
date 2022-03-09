@@ -17,7 +17,8 @@ export default function SearchBar() {
   return (
     <div className="search-bar">
       <Form onSubmit={handleSubmit}>
-        <Form.Control type="text" id="search" onChange={(e) => setSearchTerm(e.target.value)} placeholder="Search" />
+        <Form.Label htmlFor="search">Search:</Form.Label>
+        <Form.Control type="text" id="search" onChange={(e) => setSearchTerm(e.target.value)} />
       </Form>
     </div> 
   )
