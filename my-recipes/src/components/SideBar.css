@@ -33,7 +33,7 @@
   padding: 10px;
   text-decoration: none;
   width: 100%;
-  color: #fff;
+  color: rgb(249,248,246);
   box-sizing: border-box;
 }
 
@@ -43,8 +43,8 @@
 }
 
 .sidebar .links a.active {
-  color: #555;
-  background: rgb(255, 255, 255);
+  color: #444;
+  background-color:rgb(249,248,246);;
   border-radius: 20px 0 0 20px;
 }
 
