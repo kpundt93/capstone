@@ -18,8 +18,6 @@ const firestoreReducer = (state, action) => {
       return { ...state, isPending: false, document: action.payload, success: true, error: null }
     case 'EDITED_DOCUMENT':
       return { ...state, isPending: false, document: action.payload, success: true, error: null }
-    case 'FOUND_DOCUMENTS':
-      return { ...state, isPending: false, document: action.payload, success: true, error: null }
     case 'ERROR':
       return { ...state, isPending: false, document: null, success: false, error: action.payload }
     default:
@@ -41,19 +39,6 @@ export const useFirestore = (collection) => {
       dispatch(action);
     }
   };
-
-  // search
-  const search = (term) => {
-    dispatch({ type: 'IS_PENDING' });
-
-    try {
-      const searchResults = ref.where("ingredients", "array-contains-any", term);
-      dispatchIfNotCancelled({ type: 'FOUND_DOCUMENTS', payload: searchResults });
-    }
-    catch (err) {
-      dispatchIfNotCancelled({ type: 'ERROR', payload: err.message });
-    }
-  }
 
   // add a document to the firestore
   const addDocument = async (doc, image) => {
@@ -104,5 +89,5 @@ export const useFirestore = (collection) => {
     }
   }, []);
 
-  return { addDocument, editDocument, deleteDocument, search, response };
+  return { addDocument, editDocument, deleteDocument, response };
 }

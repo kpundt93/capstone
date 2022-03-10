@@ -4,7 +4,6 @@ import { useCollection } from '../hooks/useCollection'
 // components
 import RecipeList from './RecipeList'
 import FilterCategory from './FilterCategory'
-import SearchBar from './SearchBar'
 // styles
 import './Home.css'
 
@@ -41,7 +40,6 @@ export default function Home() {
         {documents && (
           <FilterCategory currentFilter={currentFilter} changeFilter={changeFilter} />
         )}
-        {documents && <SearchBar />}
         {documents && <RecipeList recipes={recipes} />}
       </div>
     </React.Fragment>
