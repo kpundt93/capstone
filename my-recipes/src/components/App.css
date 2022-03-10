@@ -3,6 +3,7 @@
 }
 
 .app .container{
-  flex-grow: 1;
-  padding: 0 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color:rgb(249,248,246);
 }
