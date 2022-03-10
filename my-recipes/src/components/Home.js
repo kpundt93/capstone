@@ -5,6 +5,8 @@ import { useCollection } from '../hooks/useCollection'
 import RecipeList from './RecipeList'
 import FilterCategory from './FilterCategory'
 import SearchBar from './SearchBar'
+// styles
+import './Home.css'
 
 export default function Home() {
   const { documents, error } = useCollection('recipes');
@@ -34,7 +36,6 @@ export default function Home() {
 
   return (
     <React.Fragment>
-      <h2>Home</h2>
       <div>
         {error && <p>{error}</p>}
         {documents && (

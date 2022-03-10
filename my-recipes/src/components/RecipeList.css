@@ -1,0 +1,53 @@
+.recipe-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 40px;
+  max-width: 1200px;
+  margin: 40px auto;
+  box-sizing: border-box;
+}
+
+.recipe-list .card {
+  background: #fff;
+  padding: 1em;
+  border-radius: 4px;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.05);
+  position: relative;
+}
+
+.recipe-list .card h4 {
+  color: #222;
+  margin-bottom: 0.5em;
+}
+
+.recipe-list .card p {
+  color: #555;
+  font-size: 1.1em;
+  margin-bottom: 0.5em;
+}
+
+.recipe-list .card a {
+  color: #555;
+  text-decoration: none;
+  display: block;
+  background: #e2e2e2;
+  font-size: 1em;
+  text-align: center;
+  width: 120px;
+  padding: 0.75em;
+  border-radius: 4px;
+  margin: 20px auto 0;
+}
+
+.recipe-list .card a:hover {
+  background-color: #a2a2a2;
+  color: #fff;
+}
+
+.delete {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  filter: invert(60%);
+}
