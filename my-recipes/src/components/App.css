@@ -1,6 +1,7 @@
 .app {
   display: flex;
   background-color:rgb(249,248,246);
+  height: 100vh;
 }
 
 .app .container{

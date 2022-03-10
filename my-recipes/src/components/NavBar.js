@@ -11,6 +11,7 @@ export default function Navbar() {
 
   return (
     <div className='navbar'>
+      <p className='title'>myRecipes</p>
       <ul>
         {/* only show these links if a user is not logged in */}
         {!user && (
@@ -22,7 +23,7 @@ export default function Navbar() {
         {/* only show these if a user is logged in */}
         {user && (
           <>
-            <li><button className='btn' onClick={logout}>Logout</button></li>
+            <li><button className='nav-button' onClick={logout}>Logout</button></li>
           </>
         )}
       </ul>
