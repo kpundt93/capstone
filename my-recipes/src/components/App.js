@@ -10,7 +10,6 @@ import Login from './Login'
 import Signup from './Signup'
 import RecipeDetails from './RecipeDetails'
 import EditRecipe from './EditRecipe'
-import SearchResults from './SearchResults'
 // styles
 import './App.css'
 
@@ -36,10 +35,6 @@ function App() {
               <Route path='/recipes/:id'>
                 {!user && <Redirect to='/login' />}  
                 {user && <RecipeDetails />}
-              </Route>
-              <Route path='/search'>
-                {!user && <Redirect to='/login' />}  
-                {user && <SearchResults />}
               </Route>
               <Route path='/edit/:id'>
                 {!user && <Redirect to='/login' />}  
