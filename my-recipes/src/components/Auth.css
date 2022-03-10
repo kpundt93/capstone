@@ -9,6 +9,11 @@
   padding: 0.25em 0.5em;
 }
 
+.auth-form .auth-btn:hover {
+  border: 1px solid #777;
+  color: #fff;
+}
+
 .form-control {
   margin-bottom: 1em;
 }

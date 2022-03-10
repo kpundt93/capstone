@@ -1,0 +1,38 @@
+.recipe-details {
+  margin: 0.5em;
+  background-color: #fff;
+  padding: 0.25em 0.5em;
+  padding-bottom: 1em;
+  border-radius: 4px;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.05);
+}
+
+h3 {
+  padding-bottom: 0.5em;
+  text-decoration: underline;
+}
+
+img {
+  max-width: 600px;
+  height: auto;
+}
+
+a.edit-link {
+  text-decoration: none;
+  color: #fff;
+  padding: 0;
+  background-color: rgb(243,170,135);
+  font-weight: bold;
+  font-size: 1.1em;
+  border-radius: 5px;
+  padding: 0.3em 0.7em;
+}
+
+a.edit-link:hover {
+  border: 1px solid #777;
+  color: #fff;
+}
+
+#notes {
+  margin-bottom: 2em;
+}
