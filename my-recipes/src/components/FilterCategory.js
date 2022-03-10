@@ -1,6 +1,4 @@
 import React from 'react'
-// react-bootstrap
-import Button from 'react-bootstrap/Button'
 
 const filters = [
   "All",
@@ -22,12 +20,10 @@ export default function FilterCategory({ currentFilter, changeFilter }) {
 
   return (
     <div className="recipe-filter">
-      <nav>
-        <p>Filter by:</p>
-        {filters.map((filter) => (
-          <Button key={filter} className={currentFilter === filter ? 'active' : ''} onClick={() => handleClick(filter)}>{filter}</Button>
-        ))}
-      </nav>
+      {/* <p>Filter by:</p> */}
+      {filters.map((filter) => (
+        <button key={filter} className={currentFilter === filter ? 'active' : ''} onClick={() => handleClick(filter)}>{filter}</button>
+      ))}
     </div>
   )
 }
