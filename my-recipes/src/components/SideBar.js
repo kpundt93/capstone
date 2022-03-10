@@ -6,7 +6,7 @@ import './SideBar.css'
 // images
 import HomeIcon from '../img/home-icon.svg'
 import AddIcon from '../img/add-icon.svg'
-import Logo from '../img/recipe-book-icon.svg'
+import Logo from '../img/cookbook-icon.svg'
 
 export default function SideBar() {
   const { user } = useAuthContext();
