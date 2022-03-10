@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react'
 import { useFirestore } from '../hooks/useFirestore'
 import { useAuthContext } from '../hooks/useAuthContext'
 import { timestamp } from '../firebase-config'
-import { Link } from 'react-router-dom'
 // react-bootstrap
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
@@ -144,8 +143,8 @@ export default function CreateRecipe({ uid }) {
             ))
           }
           <div id="ingredients-buttons">
-            <Link className='ingredient-btn' id='add' onClick={handleIngredientCount}><img src={AddIcon} alt='Add' />Add</Link>
-            <Link className='ingredient-btn' id='remove' onClick={handleRemoveIngredient}><img src={RemoveIcon} alt='Remove' />Remove</Link>
+            <button className='ingredient-btn' id='add' onClick={handleIngredientCount}><img src={AddIcon} alt='Add' />Add</button>
+            <button className='ingredient-btn' id='remove' onClick={handleRemoveIngredient}><img src={RemoveIcon} alt='Remove' />Remove</button>
           </div>
           <br />
         </Form.Group>

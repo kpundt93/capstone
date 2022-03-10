@@ -4,11 +4,17 @@ import { useState, useEffect } from 'react'
 import { timestamp, projectFirestore } from '../firebase-config'
 import { useFirestore } from '../hooks/useFirestore'
 import { useAuthContext } from '../hooks/useAuthContext'
+import { Link } from 'react-router-dom'
 // react-bootstrap
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
+// styles
+import './Auth.css'
+// images
+import AddIcon from '../img/add_circle.svg'
+import RemoveIcon from '../img/remove-icon.svg'
 
 export default function EditRecipe() {
   const { editDocument, response } = useFirestore('recipes');
@@ -107,7 +113,7 @@ export default function EditRecipe() {
   }
 
   return (
-    <div>
+    <div className="recipe-form">
       {error && <p className="error">{error}</p>}
       {isPending && <p className="loading">Loading...</p>}
       {recipe && (
@@ -139,14 +145,17 @@ export default function EditRecipe() {
             </Form.Group>
 
             <Form.Group>
-              <Form.Label>Ingredients</Form.Label>
+              <br />
+              <Form.Label className='form-label'>Ingredients</Form.Label>
               { 
                 recipe.ingredients.map((ingredient, i) => (
                 <Form.Control type="text" key={i} value={ingredient} onChange={(e) => setNewIngredients(e, i)} contentEditable />
                 ))
               }
-              <button className='btn btn-secondary' onClick={handleIngredientCount}>Add ingredient</button>
-              {/* <button className='btn btn-danger' onClick={handleRemoveIngredient}>Remove ingredient</button> */}
+              <div id="ingredients-buttons">
+                <button className='ingredient-btn' id='add' onClick={handleIngredientCount}><img src={AddIcon} alt='Add' />Add</button>
+                <button className='ingredient-btn' id='remove'><img src={RemoveIcon} alt='Remove' />Remove</button>
+              </div>
             </Form.Group>
 
             <Form.Group>
@@ -158,7 +167,7 @@ export default function EditRecipe() {
               <Form.Label className='form-label'>Notes</Form.Label>
               <Form.Control type='text' as='textarea' rows={2} onChange={(e) => setNewNotes(e.target.value)} defaultValue={recipe.notes} />
             </Form.Group>
-            <Button className="btn btn-primary" type="submit">Update</Button>
+            <button className="recipe-submit" type="submit">Update</button>
         </Form>
       </>
     )}

@@ -6,15 +6,15 @@
   margin-top: 2em;
 }
 
-.recipe-form a.ingredient-btn {
+.recipe-form .ingredient-btn {
   display: inline;
   margin-right: 1em;
-  margin-bottom: 2em;
   text-decoration: none;
   color: #fff;
-  padding: 0.3em 0.6em;
+  padding: 0.25em 0.5em 0em 0.5em;
   border-radius: 5px;
   font-weight: bold;
+  border: 0;
 }
 
 #add {
@@ -25,7 +25,7 @@
   background-color: rgb(230,188,86);
 }
 
-a.ingredient-btn:hover {
+.ingredient-btn:hover {
   color: #fff;
   border: 1px solid #777;
 }
@@ -41,10 +41,9 @@ a.ingredient-btn:hover {
   border: 0;
   color: #fff;
   font-weight: bold;
-  font-size: 1.05em;
+  font-size: 1.1em;
   border-radius: 5px;
-  margin: 0.3em 0.5em;
-  padding: 0.25em 0.5em;
+  padding: 0.3em 0.7em;
 }
 
 .recipe-form .recipe-submit:hover {
