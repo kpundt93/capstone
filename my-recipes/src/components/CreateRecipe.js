@@ -12,6 +12,7 @@ import Col from 'react-bootstrap/Col'
 export default function CreateRecipe({ uid }) {
   const { addDocument, response } = useFirestore('recipes');
   const { user } = useAuthContext();
+  const [imageError, setImageError] = useState(null);
   const [form, setForm] = useState({
     title: "",
     cookTime: "",
@@ -21,7 +22,8 @@ export default function CreateRecipe({ uid }) {
     instructions: "",
     notes: "",
     uid: "",
-    createdAt: ""
+    createdAt: "",
+    image: null
   });
 
   const categories = [
@@ -72,9 +74,30 @@ export default function CreateRecipe({ uid }) {
     });
   };
 
+  const handleFileChange = (e) => {
+    let selectedImg = e.target.files[0];
+
+    if (!selectedImg.type.includes('image')) {
+      setImageError('Selected file must be an image.');
+      return;
+    }
+
+    if (selectedImg.size > 1000000) {
+      setImageError('Image file size must be less than 1mb.');
+      return;
+    }
+
+    setImageError(null);
+    setForm({
+      ...form,
+      image: selectedImg
+    });
+
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(form);
+    // console.log(form);
     addDocument(form);
   };
 
@@ -125,6 +148,13 @@ export default function CreateRecipe({ uid }) {
         <Form.Label className='form-label'>Notes</Form.Label>
         <Form.Control type='text' as='textarea' rows={2} onChange={(e) => setForm({...form, notes: e.target.value})} />
       </Form.Group>
+      
+      <Form.Group>
+        <Form.Label className='form-label'>Image</Form.Label>
+        <Form.Control type='file' onChange={handleFileChange} contentEditable />
+        {imageError && <p>{imageError}</p>}
+      </Form.Group>
+
       <Button className="btn btn-primary" type="submit" onClick={(e) => setForm({...form, uid: user.uid, createdAt: timestamp.fromDate(new Date())})}>Create Recipe</Button>
   </Form>
   );

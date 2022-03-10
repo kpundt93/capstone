@@ -1,6 +1,6 @@
 import React from 'react'
 import { useReducer, useEffect, useState } from 'react'
-import { projectFirestore } from '../firebase-config'
+import { projectFirestore, projectStorage } from '../firebase-config' 
 import { useHistory } from 'react-router-dom'
 
 let initialState = {
@@ -56,12 +56,22 @@ export const useFirestore = (collection) => {
   }
 
   // add a document to the firestore
-  const addDocument = async (doc) => {
+  const addDocument = async (doc, image) => {
     dispatch({ type: 'IS_PENDING' });
 
     try {
       const addedDocument = await ref.add(doc);
+      console.log(addedDocument);
       dispatchIfNotCancelled({ type: 'ADDED_DOCUMENT', payload: addedDocument });
+
+      // upload image
+      const uploadPath = `images/${addedDocument.id}/${image.name}`;
+      const img = await projectStorage.ref(uploadPath).put(image);
+      const imgUrl = await img.ref.getDownloadURL();
+
+      // add image to recipe
+      // await addedDocument.doc.update({ image: imgUrl });
+
       history.push('/');
     }
     catch (err) {
