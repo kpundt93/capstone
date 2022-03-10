@@ -61,13 +61,12 @@ export const useFirestore = (collection) => {
 
     try {
       const addedDocument = await ref.add(doc);
-      console.log(addedDocument);
       dispatchIfNotCancelled({ type: 'ADDED_DOCUMENT', payload: addedDocument });
 
       // upload image
-      const uploadPath = `images/${addedDocument.id}/${image.name}`;
-      const img = await projectStorage.ref(uploadPath).put(image);
-      const imgUrl = await img.ref.getDownloadURL();
+      // const uploadPath = `images/${addedDocument.id}/${image.name}`;
+      // const img = await projectStorage.ref(uploadPath).put(image);
+      // const imgUrl = await img.ref.getDownloadURL();
 
       // add image to recipe
       // await addedDocument.doc.update({ image: imgUrl });

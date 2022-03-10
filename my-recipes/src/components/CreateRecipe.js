@@ -74,26 +74,26 @@ export default function CreateRecipe({ uid }) {
     });
   };
 
-  const handleFileChange = (e) => {
-    let selectedImg = e.target.files[0];
+  // const handleFileChange = (e) => {
+  //   let selectedImg = e.target.files[0];
 
-    if (!selectedImg.type.includes('image')) {
-      setImageError('Selected file must be an image.');
-      return;
-    }
+  //   if (!selectedImg.type.includes('image')) {
+  //     setImageError('Selected file must be an image.');
+  //     return;
+  //   }
 
-    if (selectedImg.size > 1000000) {
-      setImageError('Image file size must be less than 1mb.');
-      return;
-    }
+  //   if (selectedImg.size > 1000000) {
+  //     setImageError('Image file size must be less than 1mb.');
+  //     return;
+  //   }
 
-    setImageError(null);
-    setForm({
-      ...form,
-      image: selectedImg
-    });
+  //   setImageError(null);
+  //   setForm({
+  //     ...form,
+  //     image: selectedImg
+  //   });
 
-  }
+  // }
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -149,11 +149,11 @@ export default function CreateRecipe({ uid }) {
         <Form.Control type='text' as='textarea' rows={2} onChange={(e) => setForm({...form, notes: e.target.value})} />
       </Form.Group>
       
-      <Form.Group>
+      {/* <Form.Group>
         <Form.Label className='form-label'>Image</Form.Label>
         <Form.Control type='file' onChange={handleFileChange} contentEditable />
         {imageError && <p>{imageError}</p>}
-      </Form.Group>
+      </Form.Group> */}
 
       <Button className="btn btn-primary" type="submit" onClick={(e) => setForm({...form, uid: user.uid, createdAt: timestamp.fromDate(new Date())})}>Create Recipe</Button>
   </Form>
