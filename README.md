@@ -19,6 +19,8 @@
 ## Description
 myRecipes is a web application built with React. Users can sign up for an account and create and categorize their recipes. As some one who enjoys cooking, I wanted to create a capstone project that would allow me to centralize my recipe collection. This application allows users to create, edit, and delete their recipes.
 
+The project is hosted [here](https://my-recipes-5be3b.web.app/) on Firebase.
+
 ## Setup/Installation Requirements
 - Open the terminal on your desktop
 - Once in the terminal, use it to navigate to your desktop folder
