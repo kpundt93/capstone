@@ -3,7 +3,8 @@ import { useState } from 'react'
 import { useSignup } from '../hooks/useSignup'
 // react-bootstrap
 import Form from 'react-bootstrap/Form'
-import Button from 'react-bootstrap/Button'
+// styles
+import './Auth.css'
 
 export default function Signup() {
   const [email, setEmail] = useState("");
@@ -18,22 +19,24 @@ export default function Signup() {
 
   return (
     <React.Fragment>
-    <h2>Sign Up</h2>
+    <h3>Sign Up</h3>
+    <div className="auth-form">
       <Form onSubmit={handleSubmit}>
-        <Form.Group>
+        <Form.Group className='col-6'>
           <Form.Label className='form-label'>Email</Form.Label>
           <Form.Control type='email' onChange={(e) => setEmail(e.target.value)} value={email} required />
         </Form.Group>
 
-        <Form.Group>
+        <Form.Group className='col-6'>
           <Form.Label className='form-label'>Password</Form.Label>
           <Form.Control type='password' onChange={(e) => setPassword(e.target.value)} value={password} required />
         </Form.Group>
 
-        {!isPending && <Button className="btn btn-primary" type="submit">Submit</Button>}
-        {isPending && <Button className="btn" disabled>Loading...</Button>}
+        {!isPending && <button className="auth-btn" type="submit">Submit</button>}
+        {isPending && <button className="auth-btn" disabled>Loading...</button>}
         {error && <p>{error}</p>}
-    </Form>
+      </Form>
+    </div>
   </React.Fragment>
   )
 }
