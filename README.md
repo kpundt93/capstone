@@ -2,7 +2,7 @@
 
 #### By: _**Katie Pundt**_
 
-#### _Brief description._
+#### _My capstone project for Epicodus._
 
 ## Technologies Used
 - HTML
@@ -17,7 +17,7 @@
 - GitHub
 
 ## Description
-
+myRecipes is a web application built with React. Users can sign up for an account and create and categorize their recipes. As some one who enjoys cooking, I wanted to create a capstone project that would allow me to centralize my recipe collection. This application allows users to create, edit, and delete their recipes.
 
 ## Setup/Installation Requirements
 - Open the terminal on your desktop
@@ -29,6 +29,15 @@
 - If you receive errors in the terminal, try running `npm install` again, sometimes npm can be finicky
 - Then run the command `npm run start` to start the project server and view the application (use ctrl + c to exit the server in the terminal)
 - Open the project with the code editor of your choice
+
+## Future Plans
+- Allow users to upload images to their recipes
+- Implement OAuth for easy account creation and login
+- Allow users to scale their recipes
+- Add more search filters as well as a search bar
+
+## Known Bugs
+- Currently users cannot directly edit their ingredients. If you need to edit an ingredient, unfortunatley you will need to delete the recipe and start over. 
 
 ## Component Diagram
 ![Component Diagram](component-diagram.drawio.png)
@@ -159,3 +168,8 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 </details>
+
+## License
+_MIT License: https://opensource.org/licenses/MIT_
+
+Copyright (c) _2022_ _Katie Pundt_
