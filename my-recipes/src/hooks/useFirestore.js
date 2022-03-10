@@ -41,7 +41,7 @@ export const useFirestore = (collection) => {
   };
 
   // add a document to the firestore
-  const addDocument = async (doc, image) => {
+  const addDocument = async (doc) => {
     dispatch({ type: 'IS_PENDING' });
 
     try {
@@ -70,6 +70,7 @@ export const useFirestore = (collection) => {
     try {
       const editedDocument = await ref.doc(id).update(updates)
       dispatchIfNotCancelled({ type: 'EDITED_DOCUMENT', payload: editedDocument });
+      history.push('/');
       return editedDocument;
     }
     catch (err) {

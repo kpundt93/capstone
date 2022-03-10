@@ -6,11 +6,11 @@ import { Link } from 'react-router-dom'
 
 export default function Recipe() {
   const { id } = useParams();
-
   const [recipe, setRecipe] = useState(null);
   const [isPending, setIsPending] = useState(false);
   const [error, setError] = useState(false);
   const [docToEdit, setDocToEdit] = useState("");
+
 
   useEffect(() => {
     setIsPending(true);

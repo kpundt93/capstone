@@ -26,6 +26,7 @@ export default function RecipeList({ recipes }) {
           <p><strong>Cook time:</strong> {recipe.cookTime}</p>
           <p><strong>Servings:</strong> {recipe.servings}</p>
           <p><strong>Category:</strong> {recipe.category}</p>
+          {console.log(recipe)}
           <Link to={`/recipes/${recipe.id}`}>Details</Link>
           <img src={DeleteIcon} className='delete' onClick={() => handleClick(recipe.id)} />
         </div>
