@@ -15,7 +15,6 @@
   color: #fff;
   font-size: 1.05em;
   font-weight: bold;
-  margin-bottom: 4em;
   border-radius: 5px;
 }
 
@@ -26,9 +25,8 @@
   font-size: 1.05em;
   font-weight: bold;
   border-radius: 5px;
-  margin-top: 0.25em;
-  margin-right: 1em;
-  margin-bottom: 3em;
+  margin-bottom: 4em;
+  margin-left: 1em;
   padding: 0.25em 0.5em;
 }
 
@@ -36,4 +34,13 @@
   text-decoration: none;
   color: #fff;
   padding: 0;
+}
+
+.navbar a:hover{
+  color: #fff;
+}
+
+.navbar li:hover {
+  border: 1px solid #777;
+  color: #fff;
 }
